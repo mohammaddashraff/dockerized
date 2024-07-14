@@ -1,0 +1,12 @@
+# Use the official MySQL image from the Docker Hub
+FROM mysql:8.0
+
+# Set environment variables for MySQL
+ENV MYSQL_DATABASE=uniHub
+ENV MYSQL_ALLOW_EMPTY_PASSWORD=yes
+
+# Copy the SQL dump file to the Docker container
+COPY GP-DataBase/_localhost__2_-2024_07_14_02_28_04-dump.sql /docker-entrypoint-initdb.d/
+
+# Expose the default MySQL port
+EXPOSE 3306
